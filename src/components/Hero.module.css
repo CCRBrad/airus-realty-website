@@ -1,0 +1,195 @@
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-20) 0;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: var(--space-24) 0;
+    }
+}
+
+.hero.dark,
+.hero.home {
+    color: var(--color-white);
+}
+
+.hero.dark {
+    background: var(--color-navy);
+}
+
+.hero.home {
+    background: linear-gradient(160deg, var(--color-navy) 0%, #0f2847 40%, var(--color-navy-muted) 100%);
+    padding: var(--space-24) 0 var(--space-20);
+}
+
+@media (min-width: 768px) {
+    .hero.home {
+        padding: 7rem 0 5rem;
+    }
+}
+
+.hero.light {
+    background: var(--color-off-white);
+    color: var(--color-gray-800);
+}
+
+/* Subtle Background Effect */
+.bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hero.home .bg {
+    background-image:
+        radial-gradient(ellipse 600px 400px at 80% 20%, rgba(37, 99, 235, 0.12), transparent),
+        radial-gradient(ellipse 500px 300px at 20% 80%, rgba(212, 168, 83, 0.08), transparent);
+}
+
+.hero.dark .bg {
+    background-image:
+        radial-gradient(ellipse 400px 300px at 70% 30%, rgba(37, 99, 235, 0.1), transparent);
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.alignCenter .content {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.alignLeft .content {
+    text-align: left;
+}
+
+.badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-4);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    background: rgba(37, 99, 235, 0.2);
+    color: var(--color-blue-light);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-6);
+    letter-spacing: 0.02em;
+}
+
+.hero.light .badge {
+    background: var(--color-blue-pale);
+    color: var(--color-blue);
+}
+
+.title {
+    font-size: var(--font-size-4xl);
+    line-height: 1.1;
+    margin-bottom: var(--space-6);
+    letter-spacing: -0.03em;
+}
+
+.hero.dark .title,
+.hero.home .title {
+    color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .title {
+        font-size: var(--font-size-6xl);
+    }
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: var(--space-8);
+}
+
+.hero.dark .subtitle,
+.hero.home .subtitle {
+    color: var(--color-gray-300);
+}
+
+.hero.light .subtitle {
+    color: var(--color-gray-600);
+}
+
+.alignCenter .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.alignCenter .actions {
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 480px) {
+    .actions {
+        flex-direction: row;
+    }
+}
+
+/* Trust Badge Row */
+.trustRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-8);
+}
+
+.alignCenter .trustRow {
+    justify-content: center;
+}
+
+.trustBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-full);
+    color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.trustBadge:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero.light .trustBadge {
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.15);
+    color: var(--color-gray-700);
+}
+
+/* Compliance micro text */
+.compliance {
+    margin-top: var(--space-6);
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+}

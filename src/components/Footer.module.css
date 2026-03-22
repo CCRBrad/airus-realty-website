@@ -1,0 +1,252 @@
+.footer {
+  background: var(--color-navy);
+  color: var(--color-gray-300);
+}
+
+/* CTA Band */
+.ctaBand {
+  background: linear-gradient(135deg, var(--color-navy-light) 0%, var(--color-navy-muted) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: var(--space-12) 0;
+}
+
+.ctaInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .ctaInner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.ctaText h3 {
+  color: var(--color-white);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.ctaText p {
+  color: var(--color-gray-400);
+  font-size: var(--font-size-base);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+/* Main Footer Grid */
+.main {
+  padding: var(--space-16) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.column {}
+
+.columnTitle {
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.link {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-white);
+}
+
+/* Bottom Bar */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-10) 0 var(--space-8);
+}
+
+.bottomInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .bottomInner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.bottomLeft {}
+
+.bottomLogo {
+  margin-bottom: var(--space-3);
+}
+
+.logoText {
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  color: var(--color-white);
+}
+
+.logoTextBold {
+  font-weight: 800;
+}
+
+.dre {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-2);
+}
+
+.contactInfo {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-1);
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .legalLinks {
+    justify-content: flex-end;
+    max-width: 400px;
+  }
+}
+
+.legalLink {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.legalLink:hover {
+  color: var(--color-white);
+}
+
+/* Licensed States */
+.licensedStates {
+  text-align: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.licensedTitle {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.statesList {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+}
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.disclaimer p {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+}
+
+/* Bottom Footer */
+.bottomFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .bottomFooter {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.equalHousing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.socialIcon {
+  color: var(--color-gray-500);
+  transition: color var(--transition-fast);
+}
+
+.socialIcon:hover {
+  color: var(--color-white);
+}
