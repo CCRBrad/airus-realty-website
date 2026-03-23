@@ -5,10 +5,10 @@ const footerSections = [
     {
         title: 'For Agents',
         links: [
-            { label: 'Why Airus', href: '/agents' },
+            { label: 'Meet the Team', href: '/agents' },
+            { label: 'Why Airus', href: '/agents#directory' },
             { label: 'Join Airus', href: '/join' },
             { label: 'Training & Tools', href: '/training' },
-            { label: 'Agent Platform', href: '/agents#platform' },
             { label: 'Culture', href: '/culture' },
         ],
     },
@@ -42,6 +42,7 @@ const footerSections = [
         title: 'Company',
         links: [
             { label: 'About', href: '/culture' },
+            { label: 'Meet the Team', href: '/agents' },
             { label: 'Contact', href: '/contact' },
             { label: 'Join Airus', href: '/join' },
         ],

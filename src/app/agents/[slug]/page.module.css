@@ -1,0 +1,197 @@
+/* ========================================
+   AGENT PROFILE PAGE
+   ======================================== */
+
+/* Profile Layout */
+.profileSection {
+  padding: var(--space-16) 0;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .profileGrid {
+    grid-template-columns: 380px 1fr;
+    align-items: start;
+  }
+}
+
+/* Left Column — Photo + Quick Info */
+.profileSidebar {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+.photoCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.profilePhoto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.profileQuickInfo {
+  padding: var(--space-6);
+}
+
+.profileName {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: var(--space-1);
+}
+
+.profileTitle {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-4);
+}
+
+.profileContactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.profileContactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.profileContactItem a {
+  color: var(--color-gray-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.profileContactItem a:hover {
+  color: var(--color-blue);
+}
+
+.profileExperience {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* Compliance Card */
+.complianceCard {
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+}
+
+.complianceTitle {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-2);
+}
+
+.complianceItem {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  line-height: 1.8;
+}
+
+/* Right Column — Bio + Details */
+.profileMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+
+.profileBlock h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: var(--space-4);
+}
+
+.profileBio {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--color-gray-700);
+}
+
+/* Tags for specialties / areas */
+.tagGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background: var(--color-blue-ghost);
+  color: var(--color-blue);
+}
+
+.tag.area {
+  background: var(--color-gold-light);
+  color: var(--color-gold-hover);
+}
+
+/* Contact Form */
+.formCard {
+  padding: var(--space-8);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.formCard h2 {
+  margin-bottom: var(--space-2);
+}
+
+.formSub {
+  color: var(--color-gray-500);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-6);
+}
+
+/* Back Link */
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-gray-500);
+  text-decoration: none;
+  margin-bottom: var(--space-8);
+  transition: color var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--color-blue);
+}

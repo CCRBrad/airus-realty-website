@@ -17,8 +17,8 @@ const navItems = [
     label: 'Agents',
     href: '/agents',
     children: [
-      { label: 'Why Airus', href: '/agents' },
-      { label: 'Agent Platform', href: '/agents#platform' },
+      { label: 'Meet the Team', href: '/agents' },
+      { label: 'Why Airus', href: '/agents#directory' },
       { label: 'Join Airus', href: '/join' },
     ],
   },

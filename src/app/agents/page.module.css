@@ -1,0 +1,309 @@
+/* ========================================
+   AGENTS / TEAM DIRECTORY PAGE
+   ======================================== */
+
+/* Section Headers */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.sectionSubtitle {
+  color: var(--color-gray-500);
+  font-size: var(--font-size-lg);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ---- Highlighted Section (Top Producers / Growing Fast) ---- */
+.highlightSection {
+  padding: var(--space-16) 0;
+}
+
+.highlightSection.altBg {
+  background: var(--color-off-white);
+}
+
+.highlightBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: var(--radius-full);
+  background: var(--color-gold-light);
+  color: var(--color-gold-hover);
+}
+
+.highlightBadge.newAgent {
+  background: var(--color-blue-pale);
+  color: var(--color-blue);
+}
+
+/* ---- Agent Grid ---- */
+.agentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .agentGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .agentGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- Agent Card ---- */
+.agentCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.agentCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.agentCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-gold);
+}
+
+.agentCard:hover::before {
+  transform: scaleX(1);
+}
+
+.agentPhotoWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-gray-100);
+}
+
+.agentPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.agentCard:hover .agentPhoto {
+  transform: scale(1.04);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  background: var(--color-gold);
+  color: var(--color-navy);
+  box-shadow: var(--shadow-md);
+}
+
+.featuredBadge.rising {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+.agentInfo {
+  padding: var(--space-5) var(--space-6) var(--space-6);
+}
+
+.agentName {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: var(--space-1);
+}
+
+.agentTitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-3);
+}
+
+.agentContact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.agentContactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.agentContactItem a {
+  color: var(--color-gray-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.agentContactItem a:hover {
+  color: var(--color-blue);
+}
+
+.specialtyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.specialtyTag {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background: var(--color-blue-ghost);
+  color: var(--color-blue);
+  white-space: nowrap;
+}
+
+.viewProfileBtn {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-navy);
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.viewProfileBtn:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* ---- All Agents Directory Section ---- */
+.directorySection {
+  padding: var(--space-16) 0;
+  background: var(--color-off-white);
+}
+
+/* ---- Culture Section ---- */
+.cultureSection {
+  padding: var(--space-16) 0;
+}
+
+.cultureGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .cultureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cultureGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cultureCard {
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.cultureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gold);
+}
+
+.cultureIcon {
+  font-size: 48px;
+  margin-bottom: var(--space-4);
+}
+
+.cultureTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-2);
+}
+
+.cultureDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  line-height: 1.6;
+}
+
+/* ---- Recruiting Section ---- */
+.recruitSection {
+  padding: var(--space-20) 0;
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  text-align: center;
+}
+
+.recruitSection h2 {
+  color: var(--color-white);
+  font-size: var(--font-size-4xl);
+}
+
+.recruitSubtitle {
+  color: var(--color-gray-300);
+  font-size: var(--font-size-lg);
+  max-width: 560px;
+  margin: 0 auto var(--space-8);
+}
+
+.recruitActions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .recruitSection h2 {
+    font-size: var(--font-size-5xl);
+  }
+}
