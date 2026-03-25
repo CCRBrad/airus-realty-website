@@ -464,3 +464,321 @@
 .lcItem:hover .lcArrow {
   color: var(--color-blue);
 }
+
+/* ========================================
+   HUMAN LAYER — NEW SECTIONS
+   ======================================== */
+
+/* ---- Split Section (Image + Text) ---- */
+.splitSection {
+  padding: var(--space-16) 0;
+}
+
+.splitSection.altBg {
+  background: var(--color-off-white);
+}
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .splitGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.splitImage {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.splitImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.splitText h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: var(--space-4);
+}
+
+.splitSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+/* Bullet List with Checks */
+.bulletList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+  font-weight: 500;
+}
+
+.bulletCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--color-success);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---- Meet Your Agents ---- */
+.meetSection {
+  padding: var(--space-16) 0;
+  background: var(--color-off-white);
+}
+
+.meetGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .meetGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .meetGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.meetCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  text-align: center;
+}
+
+.meetCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-gold);
+}
+
+.meetPhoto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.meetInfo {
+  padding: var(--space-5) var(--space-6) var(--space-6);
+}
+
+.meetName {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: var(--space-1);
+}
+
+.meetTitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-bottom: var(--space-3);
+}
+
+.meetBio {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  margin-bottom: var(--space-5);
+}
+
+.meetCta {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-navy);
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.meetCta:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* ---- Client Experience Section ---- */
+.clientSection {
+  padding: var(--space-16) 0;
+}
+
+.clientGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .clientGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .clientGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.clientCard {
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.clientCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gold);
+}
+
+.clientIcon {
+  font-size: 48px;
+  margin-bottom: var(--space-4);
+}
+
+.clientTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-2);
+}
+
+.clientDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  line-height: 1.6;
+}
+
+/* ---- Recruiting Section ---- */
+.recruitSection {
+  padding: var(--space-20) 0;
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  color: var(--color-white);
+}
+
+.recruitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .recruitGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.recruitImage {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+}
+
+.recruitImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.recruitText h2 {
+  color: var(--color-white);
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  margin-bottom: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .recruitText h2 {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.recruitSubtitle {
+  color: var(--color-gray-300);
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+.recruitBullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.recruitBulletItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-200);
+  font-weight: 500;
+}
+
+.recruitBulletIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(212, 168, 83, 0.2);
+  color: var(--color-gold);
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}

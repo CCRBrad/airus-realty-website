@@ -193,3 +193,40 @@
     font-size: var(--font-size-xs);
     color: var(--color-gray-500);
 }
+
+/* ---- Split Layout ---- */
+.heroSplit .splitGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .heroSplit .splitGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-12);
+    }
+}
+
+.heroImageWrap {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .heroImageWrap {
+        display: block;
+    }
+}
+
+.heroImage {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+}
+
+.heroSplit .content {
+    max-width: none;
+}

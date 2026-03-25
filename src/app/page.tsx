@@ -1,9 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import Hero from '@/components/Hero';
-import FeatureCards from '@/components/FeatureCards';
 import StatsBar from '@/components/StatsBar';
-import ProcessSteps from '@/components/ProcessSteps';
 import CTABanner from '@/components/CTABanner';
+import { getFeaturedAgents } from '@/data/agents';
 import styles from './page.module.css';
 
 /* --------------------------------------------------------
@@ -16,27 +16,17 @@ const agentStats = [
   { value: '45%', label: 'Production Increase' },
 ];
 
-const platformModules = [
-  { icon: '📊', title: 'CRM + Lead Pipeline System', desc: 'Manage contacts, track leads, and automate follow-up so nothing falls through the cracks.' },
-  { icon: '🏡', title: 'Listing Marketing Engine', desc: 'Professional listing presentations, social graphics, and email campaigns — done for you.' },
-  { icon: '📱', title: 'Social Media & Brand Building', desc: 'Templates, content calendars, and strategy — grow your personal brand on autopilot.' },
-  { icon: '🎓', title: 'Training & Coaching Programs', desc: 'Live coaching, on-demand courses, and mentorship that leads to closings, not just certificates.' },
-  { icon: '📋', title: 'Scripts, Playbooks & Systems', desc: 'Proven scripts for prospecting, objections, and closings — tested in real transactions.' },
-  { icon: '📝', title: 'Transaction Management Support', desc: 'TC support and transaction coordination so you can focus on clients, not paperwork.' },
-];
-
 const calculatorCards = [
   { icon: '🏠', title: 'Mortgage Calculator', description: 'Estimate your monthly payment', href: '/calculators/mortgage-calculator' },
   { icon: '💰', title: 'Rent vs Buy', description: 'Compare renting vs owning', href: '/calculators/rent-vs-buy' },
   { icon: '📈', title: 'Seller Net Proceeds', description: 'Estimate your net from selling', href: '/calculators/seller-net-proceeds' },
 ];
 
-const comparisonRows = [
-  { feature: 'Agent Development', airus: 'Structured growth system', other: 'No structure' },
-  { feature: 'Support Level', airus: 'Full support + mentorship', other: 'Independence only' },
-  { feature: 'Technology', airus: 'Modern CRM + automation', other: 'Outdated systems' },
-  { feature: 'Training', airus: 'Real coaching → closings', other: 'Minimal guidance' },
-  { feature: 'Marketing', airus: 'Done-for-you branding', other: 'Figure it out' },
+const clientExperience = [
+  { icon: '💬', title: 'Clear Communication', desc: 'Your agent keeps you informed at every step — no surprises, no guesswork.' },
+  { icon: '🗺️', title: 'Step-by-Step Guidance', desc: 'From first showing to closing day, your agent walks you through every decision.' },
+  { icon: '🤝', title: 'Smooth Closings', desc: 'Our agents coordinate with lenders, inspectors, and title companies so you don\'t have to.' },
+  { icon: '🔑', title: 'Long-Term Relationships', desc: 'We\'re not just here for one deal — we\'re here for every move you make.' },
 ];
 
 const learningCategories = [
@@ -49,41 +39,70 @@ const learningCategories = [
   { icon: '💸', label: 'Seller Guides', href: '/learning-center#seller-guides' },
 ];
 
-const vpPoints = [
-  'Real Training That Leads to Closings',
-  'Marketing + Personal Branding Support',
-  'Built-In Lead Generation Systems',
-  'Transaction Coordination & Support',
-  'Modern CRM + Automation Tools',
-  'Mentorship + Coaching',
-  'Growth Path for New & Experienced Agents',
-];
-
-const growthSteps = [
-  { number: 1, title: 'Your First Deal', description: 'Get trained, get leads, and close your first transaction with full support.' },
-  { number: 2, title: 'Build Momentum', description: 'Scale to 5-10 deals with marketing systems, coaching, and accountability.' },
-  { number: 3, title: 'Lead & Grow', description: 'Build a team, mentor others, and grow your real estate business to the next level.' },
-];
-
 /* --------------------------------------------------------
    PAGE
    -------------------------------------------------------- */
 
 export default function HomePage() {
+  const featuredAgents = getFeaturedAgents();
+
   return (
     <>
-      {/* 1 — HERO */}
+      {/* 1 — HERO (Split Layout) */}
       <Hero
         variant="home"
         badge="California DRE License #02329021"
-        title={'Build Your Real Estate\nBusiness With Airus Realty'}
-        subtitle="A modern brokerage built for agents who want more — more support, more tools, and more growth."
-        primaryCTA={{ label: 'Join Airus', href: '/join' }}
-        secondaryCTA={{ label: 'See How It Works', href: '#how-it-works' }}
+        title={'Your Home Journey\nStarts With the\nRight Agent'}
+        subtitle="Work with experienced agents who guide you through every step — from your first showing to closing day."
+        primaryCTA={{ label: 'Find an Agent', href: '/agents' }}
+        secondaryCTA={{ label: 'Join Airus', href: '/join' }}
+        image="/images/hero-agents.png"
+        imageAlt="Real estate agent handing keys to happy homebuyers"
         compliance="California DRE License #02329021 | Equal Housing Opportunity"
       />
 
-      {/* 2 — DUAL PATH */}
+      {/* 2 — MEET YOUR AGENTS */}
+      <section className={styles.meetSection}>
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <div className="divider divider--center" />
+            <h2>Meet Your Agents</h2>
+            <p className={styles.sectionSubtitle}>
+              You&apos;re not just working with a platform — you&apos;re working with real professionals.
+            </p>
+          </div>
+          <div className={styles.meetGrid}>
+            {featuredAgents.map((agent) => (
+              <div key={agent.slug} className={styles.meetCard}>
+                <Image
+                  src={agent.photo}
+                  alt={`${agent.name} — ${agent.title}`}
+                  width={600}
+                  height={600}
+                  className={styles.meetPhoto}
+                />
+                <div className={styles.meetInfo}>
+                  <h3 className={styles.meetName}>{agent.name}</h3>
+                  <p className={styles.meetTitle}>{agent.title}</p>
+                  <p className={styles.meetBio}>
+                    {agent.bio.split('.').slice(0, 2).join('.') + '.'}
+                  </p>
+                  <Link href={`/agents/${agent.slug}`} className={styles.meetCta}>
+                    Work With {agent.name.split(' ')[0]} →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.viewAll}>
+            <Link href="/agents" className="btn btn--primary">
+              View All Agents
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 — HOW CAN WE HELP */}
       <section className="section" id="how-it-works">
         <div className="container">
           <div className={styles.sectionHeader}>
@@ -91,7 +110,7 @@ export default function HomePage() {
             <h2>How Can We Help You?</h2>
           </div>
           <div className={styles.dualGrid}>
-            <Link href="/join" className={styles.dualCard}>
+            <Link href="/agents" className={styles.dualCard}>
               <span className={styles.dualIcon}>👔</span>
               <h3 className={styles.dualTitle}>I&apos;m an Agent</h3>
               <p className={styles.dualSub}>Grow Your Career With Airus</p>
@@ -100,76 +119,150 @@ export default function HomePage() {
             <Link href="/find-homes" className={styles.dualCard}>
               <span className={styles.dualIcon}>🏠</span>
               <h3 className={styles.dualTitle}>I&apos;m Buying</h3>
-              <p className={styles.dualSub}>Find Your Home</p>
+              <p className={styles.dualSub}>Find Your Home With an Agent</p>
               <span className={styles.dualArrow}>Search Homes →</span>
             </Link>
             <Link href="/sell" className={styles.dualCard}>
               <span className={styles.dualIcon}>💰</span>
               <h3 className={styles.dualTitle}>I&apos;m Selling</h3>
-              <p className={styles.dualSub}>Estimate Your Home Value</p>
+              <p className={styles.dualSub}>Get Expert Help Selling Your Home</p>
               <span className={styles.dualArrow}>Get Started →</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 3 — AGENT VALUE PROPOSITION */}
-      <section className={styles.vpSection}>
+      {/* 4 — BUY WITH AIRUS (Split: Image Left, Text Right) */}
+      <section className={`${styles.splitSection} ${styles.altBg}`}>
         <div className="container">
-          <div className={styles.vpInner}>
-            <div className="divider divider--center" />
-            <h2>Why Agents Are Choosing Airus</h2>
-            <p className={styles.sectionSubtitle}>
-              We don&apos;t just offer a brokerage — we offer a system for growth.
-            </p>
-            <div className={styles.vpGrid}>
-              {vpPoints.map((point, i) => (
-                <div key={i} className={styles.vpItem}>
-                  <span className={styles.vpCheck}>✓</span>
-                  <span className={styles.vpText}>{point}</span>
-                </div>
-              ))}
+          <div className={styles.splitGrid}>
+            <div className={styles.splitImage}>
+              <Image
+                src="/images/buyer-journey.png"
+                alt="Agent showing a modern home to a couple"
+                width={640}
+                height={640}
+              />
             </div>
-            <div className={styles.viewAll}>
-              <Link href="/agents" className="btn btn--primary">
-                Explore the Airus Platform
+            <div className={styles.splitText}>
+              <h2>Buy With Confidence</h2>
+              <p className={styles.splitSubtitle}>
+                Work with an agent who helps you find and secure the right home — with expert guidance at every step of the journey.
+              </p>
+              <div className={styles.bulletList}>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Personalized home search based on your needs
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Expert negotiation to help you get the best price
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Coordination with lenders for a smooth closing
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Support from first showing to move-in day
+                </div>
+              </div>
+              <Link href="/find-homes" className="btn btn--primary">
+                Start Your Home Search
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4 — PLATFORM / TOOLS */}
-      <section className="section">
+      {/* 5 — SELL WITH AIRUS (Split: Text Left, Image Right) */}
+      <section className={styles.splitSection}>
         <div className="container">
-          <div className={styles.sectionHeader}>
-            <div className="divider divider--center" />
-            <h2>The Airus Agent Platform</h2>
-            <p className={styles.sectionSubtitle}>
-              Everything you need to generate leads, close deals, and build your brand — in one place.
-            </p>
-          </div>
-          <div className={styles.platformGrid}>
-            {platformModules.map((mod, i) => (
-              <div key={i} className={styles.platformCard}>
-                <span className={styles.platformIcon}>{mod.icon}</span>
-                <div>
-                  <h3 className={styles.platformTitle}>{mod.title}</h3>
-                  <p className={styles.platformDesc}>{mod.desc}</p>
+          <div className={styles.splitGrid}>
+            <div className={styles.splitText}>
+              <h2>Sell With Strategy</h2>
+              <p className={styles.splitSubtitle}>
+                Your agent helps you price, market, and sell your home for the best possible result — with clear communication every step of the way.
+              </p>
+              <div className={styles.bulletList}>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Strategic pricing based on real market data
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Professional marketing and listing exposure
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Strong negotiation to maximize your results
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Full transaction coordination to closing
                 </div>
               </div>
-            ))}
-          </div>
-          <div className={styles.viewAll}>
-            <Link href="/training" className="btn btn--secondary">
-              See Everything You Get
-            </Link>
+              <Link href="/sell" className="btn btn--primary">
+                Get Your Home Estimate
+              </Link>
+            </div>
+            <div className={styles.splitImage}>
+              <Image
+                src="/images/seller-success.png"
+                alt="Agent and homeowner celebrating a successful sale"
+                width={640}
+                height={640}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 5 — CALCULATOR HUB */}
-      <section className="section section--light">
+      {/* 6 — WHY CLIENTS CHOOSE AIRUS (Split: Image Left, Text Right) */}
+      <section className={`${styles.splitSection} ${styles.altBg}`}>
+        <div className="container">
+          <div className={styles.splitGrid}>
+            <div className={styles.splitImage}>
+              <Image
+                src="/images/client-experience.png"
+                alt="Agent reviewing documents with clients at kitchen table"
+                width={640}
+                height={640}
+              />
+            </div>
+            <div className={styles.splitText}>
+              <h2>Why Clients Choose Airus Realty</h2>
+              <p className={styles.splitSubtitle}>
+                We combine local expertise with modern tools and a genuine commitment to your success.
+              </p>
+              <div className={styles.bulletList}>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Personalized guidance tailored to your goals
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Strong negotiation backed by real market knowledge
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Deep local market expertise across California
+                </div>
+                <div className={styles.bulletItem}>
+                  <span className={styles.bulletCheck}>✓</span>
+                  Seamless coordination with lending and title
+                </div>
+              </div>
+              <Link href="/contact" className="btn btn--primary">
+                Talk to an Agent
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7 — CALCULATOR HUB */}
+      <section className="section">
         <div className="container">
           <div className={styles.sectionHeader}>
             <div className="divider divider--center" />
@@ -196,91 +289,79 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 — RECRUITING COMPARISON */}
-      <section className="section section--dark">
+      {/* 8 — CLIENT EXPERIENCE */}
+      <section className={styles.clientSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
             <div className="divider divider--center" />
-            <h2 style={{ color: 'var(--color-white)' }}>Not All Brokerages Are Built the Same</h2>
-            <p className={styles.sectionSubtitle} style={{ color: 'var(--color-gray-400)' }}>
-              If you&apos;re serious about growing your business, you&apos;re in the right place.
+            <h2>What It&apos;s Like to Work With Us</h2>
+            <p className={styles.sectionSubtitle}>
+              Our clients don&apos;t just close deals — they feel guided, supported, and confident the entire way.
             </p>
           </div>
-          <div className={styles.compareTable}>
-            <div className={styles.compareHeader}>
-              <div className={styles.compareFeature}></div>
-              <div className={styles.compareAirus}>Airus Realty</div>
-              <div className={styles.compareOther}>Other Brokerages</div>
-            </div>
-            {comparisonRows.map((row, i) => (
-              <div key={i} className={styles.compareRow}>
-                <div className={styles.compareFeature}>{row.feature}</div>
-                <div className={styles.compareAirus}>
-                  <span className={styles.checkIcon}>✓</span> {row.airus}
-                </div>
-                <div className={styles.compareOther}>
-                  <span className={styles.xIcon}>✗</span> {row.other}
-                </div>
+          <div className={styles.clientGrid}>
+            {clientExperience.map((item) => (
+              <div key={item.title} className={styles.clientCard}>
+                <div className={styles.clientIcon}>{item.icon}</div>
+                <h4 className={styles.clientTitle}>{item.title}</h4>
+                <p className={styles.clientDesc}>{item.desc}</p>
               </div>
             ))}
-          </div>
-          <div className={styles.viewAll}>
-            <Link href="/join" className="btn btn--gold" style={{ marginTop: 'var(--space-6)' }}>
-              Join Airus Realty
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* 7 — AGENT SUCCESS METRICS */}
+      {/* 9 — GROW YOUR BUSINESS (Recruiting) */}
+      <section className={styles.recruitSection}>
+        <div className="container">
+          <div className={styles.recruitGrid}>
+            <div className={styles.recruitImage}>
+              <Image
+                src="/images/team-culture.png"
+                alt="Real estate team collaborating in a modern office"
+                width={640}
+                height={640}
+              />
+            </div>
+            <div className={styles.recruitText}>
+              <h2>Grow Your Real Estate Business With Airus</h2>
+              <p className={styles.recruitSubtitle}>
+                Join a brokerage focused on training, support, and long-term growth.
+              </p>
+              <div className={styles.recruitBullets}>
+                <div className={styles.recruitBulletItem}>
+                  <span className={styles.recruitBulletIcon}>✓</span>
+                  Training and mentorship that leads to closings
+                </div>
+                <div className={styles.recruitBulletItem}>
+                  <span className={styles.recruitBulletIcon}>✓</span>
+                  Marketing support and personal branding
+                </div>
+                <div className={styles.recruitBulletItem}>
+                  <span className={styles.recruitBulletIcon}>✓</span>
+                  Modern systems, CRM, and automation tools
+                </div>
+                <div className={styles.recruitBulletItem}>
+                  <span className={styles.recruitBulletIcon}>✓</span>
+                  Growth-focused leadership and accountability
+                </div>
+              </div>
+              <Link href="/join" className="btn btn--gold btn--lg">
+                Explore Opportunities
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10 — STATS */}
       <StatsBar
         stats={agentStats}
         variant="dark"
         disclaimer="*Based on internal company data"
       />
 
-      {/* 8 — CONSUMER TRUST */}
-      <section className={styles.trustSection}>
-        <div className="container">
-          <div className={styles.sectionHeader}>
-            <div className="divider divider--center" />
-            <h2>Helping Buyers and Sellers Win</h2>
-          </div>
-          <div className={styles.trustGrid}>
-            <div className={styles.trustCard}>
-              <div className={styles.trustIcon}>🏠</div>
-              <h3 className={styles.trustTitle}>Buy With Airus</h3>
-              <p className={styles.trustDesc}>
-                Our agents guide you through every step — from finding the right home to getting the keys.
-              </p>
-            </div>
-            <div className={styles.trustCard}>
-              <div className={styles.trustIcon}>💰</div>
-              <h3 className={styles.trustTitle}>Sell With Airus</h3>
-              <p className={styles.trustDesc}>
-                Strategic pricing, professional marketing, and expert negotiation to maximize your results.
-              </p>
-            </div>
-            <div className={styles.trustCard}>
-              <div className={styles.trustIcon}>📍</div>
-              <h3 className={styles.trustTitle}>Local Expertise</h3>
-              <p className={styles.trustDesc}>
-                Our agents know the neighborhoods, the market trends, and how to position you for success.
-              </p>
-            </div>
-          </div>
-          <div className={styles.trustActions}>
-            <Link href="/find-homes" className="btn btn--primary">
-              Find an Agent
-            </Link>
-            <Link href="/find-homes" className="btn btn--secondary">
-              Search Homes
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 9 — LEARNING CENTER PREVIEW */}
+      {/* 11 — LEARNING CENTER */}
       <section className="section">
         <div className="container">
           <div className={styles.sectionHeader}>
@@ -307,21 +388,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9b — GROWTH PATH */}
-      <ProcessSteps
-        title="Your Growth Path at Airus"
-        subtitle="From first deal to building your own team."
-        steps={growthSteps}
-      />
-
-      {/* 10 — FINAL CTA */}
+      {/* 12 — FINAL CTA */}
       <CTABanner
-        heading="Ready to Take Your Business to the Next Level?"
-        description="Join the brokerage that invests in your growth — with real training, real tools, and real support."
-        primaryLabel="Join Airus"
-        primaryHref="/join"
-        secondaryLabel="Schedule a Confidential Call"
-        secondaryHref="/contact"
+        heading="Ready to Make Your Next Move?"
+        description="Whether you're buying, selling, or growing your real estate career — our agents are ready to help."
+        primaryLabel="Find an Agent"
+        primaryHref="/agents"
+        secondaryLabel="Join Airus"
+        secondaryHref="/join"
         variant="blue"
       />
     </>
