@@ -1,0 +1,270 @@
+/* ========================================
+   WHY AIRUS — Consumer Trust Page
+   ======================================== */
+
+.page {
+  --section-pad: var(--space-16);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: var(--section-pad) 0;
+}
+
+.sectionAlt {
+  background: var(--color-off-white);
+}
+
+.sectionDark {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  color: var(--color-white);
+}
+
+.sectionDark h2,
+.sectionDark h3,
+.sectionDark h4 {
+  color: var(--color-white);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.sectionSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-500);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.sectionDark .sectionSubtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Value Proposition ---------- */
+.valueSection {
+  padding: var(--section-pad) 0;
+  text-align: center;
+}
+
+.valueBox {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.valueBox h2 {
+  font-size: var(--font-size-3xl);
+}
+
+@media (min-width: 768px) {
+  .valueBox h2 {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.valueBox p {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-600);
+}
+
+/* ---------- Differentiators Grid ---------- */
+.diffGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .diffGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .diffGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.diffCard {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  border: 1px solid var(--color-gray-200);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.diffCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.diffIcon {
+  font-size: 28px;
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.diffTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-2);
+}
+
+.diffDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+  margin-bottom: 0;
+}
+
+/* ---------- Experience Sections (Buyer / Seller) ---------- */
+.experienceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .experienceGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.experienceText h2 {
+  margin-bottom: var(--space-4);
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+}
+
+.experienceItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+}
+
+.experienceCheck {
+  color: var(--color-success);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.experienceVisual {
+  background: linear-gradient(135deg, var(--color-blue-ghost) 0%, var(--color-blue-pale) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.experienceVisualIcon {
+  font-size: 80px;
+  opacity: 0.7;
+}
+
+/* ---------- Process Steps ---------- */
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .processGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.processCard {
+  text-align: center;
+  padding: var(--space-8) var(--space-6);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.processNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-gold);
+  color: var(--color-navy);
+  font-weight: 800;
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-4);
+}
+
+.processTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+}
+
+.processDesc {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0;
+}
+
+/* ---------- Social Proof ---------- */
+.proofPlaceholder {
+  text-align: center;
+  padding: var(--space-10);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  border: 2px dashed var(--color-gray-200);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.proofPlaceholder p {
+  color: var(--color-gray-400);
+  font-style: italic;
+}
+
+.complianceNote {
+  text-align: center;
+  margin-top: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+}
+
+/* ---------- Team Preview ---------- */
+.teamSection {
+  text-align: center;
+}
+
+/* ---------- Final CTA ---------- */
+.finalCta {
+  text-align: center;
+  padding: var(--space-20) 0;
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+}
+
+.finalCta h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-6);
+}
+
+.finalCtaButtons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}

@@ -2,63 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Hero from '@/components/Hero';
 import CTABanner from '@/components/CTABanner';
+import { categories } from '@/data/learningData';
 
 export const metadata: Metadata = {
   title: 'Learning Center',
   description: 'Learn. Grow. Win. Real estate guides, training, and market insights for agents, buyers, and sellers.',
 };
-
-const categories = [
-  {
-    id: 'new-agent',
-    icon: '🚀',
-    title: 'New Agent Guide',
-    description: 'Everything you need to know to launch your real estate career — from licensing to your first closing.',
-    articles: ['How to Get Your Real Estate License', 'Building Your Sphere of Influence', 'Your First 90 Days Checklist'],
-  },
-  {
-    id: 'listings',
-    icon: '🏠',
-    title: 'Listing Growth',
-    description: 'Strategies to win more listings, market them effectively, and close at top dollar.',
-    articles: ['The Perfect Listing Presentation', 'Pricing Strategy That Works', 'Marketing Your Listings for Maximum Exposure'],
-  },
-  {
-    id: 'buyers',
-    icon: '🤝',
-    title: 'Buyer Conversion',
-    description: 'Convert more buyer leads into signed agreements and successful closings.',
-    articles: ['The Buyer Consultation Blueprint', 'Handling Buyer Objections', 'From Lead to Closing in 30 Days'],
-  },
-  {
-    id: 'social',
-    icon: '📱',
-    title: 'Social Media Strategy',
-    description: 'Build your personal brand and generate leads through social media marketing.',
-    articles: ['Instagram for Real Estate Agents', 'Content Calendar Template', 'Video Marketing That Converts'],
-  },
-  {
-    id: 'market',
-    icon: '📊',
-    title: 'Market Insights',
-    description: 'Stay informed with current market trends, data analysis, and expert commentary.',
-    articles: ['Monthly Market Report', 'Interest Rate Impact on Buying Power', 'Neighborhood Market Snapshots'],
-  },
-  {
-    id: 'buyer-guides',
-    icon: '🔑',
-    title: 'Buyer Education',
-    description: 'Guides to help homebuyers navigate the process with confidence.',
-    articles: ['First-Time Homebuyer Guide', 'Understanding the Mortgage Process', 'What to Expect at Closing'],
-  },
-  {
-    id: 'seller-guides',
-    icon: '💸',
-    title: 'Seller Education',
-    description: 'Resources to help sellers prepare, price, and sell their home effectively.',
-    articles: ['How to Prepare Your Home for Sale', 'Understanding Net Proceeds', 'Timeline: From Listing to Closing'],
-  },
-];
 
 export default function LearningCenterPage() {
   return (
@@ -74,8 +23,8 @@ export default function LearningCenterPage() {
           <div style={{ display: 'grid', gap: 'var(--space-6)' }}>
             {categories.map((cat) => (
               <div
-                key={cat.id}
-                id={cat.id}
+                key={cat.slug}
+                id={cat.slug}
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr',
@@ -90,16 +39,23 @@ export default function LearningCenterPage() {
                   <div style={{ fontSize: '32px', marginBottom: 'var(--space-3)' }}>{cat.icon}</div>
                   <h3>{cat.title}</h3>
                   <p className="text-muted">{cat.description}</p>
+                  <Link
+                    href={`/learning-center/${cat.slug}`}
+                    className="btn btn--primary btn--sm"
+                    style={{ marginTop: 'var(--space-3)' }}
+                  >
+                    Explore Category →
+                  </Link>
                 </div>
                 <div>
                   <h4 style={{ fontSize: 'var(--font-size-sm)', fontWeight: 700, color: 'var(--color-gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 'var(--space-3)' }}>
                     Featured Articles
                   </h4>
                   <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                    {cat.articles.map((article, i) => (
-                      <li key={i}>
+                    {cat.articles.map((article) => (
+                      <li key={article.slug}>
                         <Link
-                          href={`/learning-center#${cat.id}`}
+                          href={`/learning-center/${cat.slug}/${article.slug}`}
                           style={{
                             display: 'flex',
                             alignItems: 'center',
@@ -115,7 +71,7 @@ export default function LearningCenterPage() {
                           }}
                         >
                           <span style={{ color: 'var(--color-blue)' }}>→</span>
-                          {article}
+                          {article.title}
                         </Link>
                       </li>
                     ))}

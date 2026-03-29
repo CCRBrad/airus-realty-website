@@ -1,0 +1,155 @@
+/* ========================================
+   CULTURE — Subpage Styles
+   ======================================== */
+
+.breadcrumb {
+  padding: var(--space-4) 0;
+  background: var(--color-off-white);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.breadcrumbInner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  flex-wrap: wrap;
+}
+
+.breadcrumbInner a {
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+.breadcrumbInner a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbSep {
+  color: var(--color-gray-300);
+}
+
+/* ---------- Content Section ---------- */
+.contentSection {
+  padding: var(--space-16) 0;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  max-width: 800px;
+}
+
+.block {
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.blockHeading {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--color-gold);
+}
+
+.blockContent {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+
+.blockBullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+  line-height: 1.6;
+}
+
+.bulletCheck {
+  color: var(--color-success);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---------- Other Pillars Section ---------- */
+.pillarsSection {
+  padding: var(--space-16) 0;
+  background: var(--color-off-white);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .pillarsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pillarsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillarCard {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  border: 1px solid var(--color-gray-200);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.pillarCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: inherit;
+}
+
+.pillarIcon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.pillarTitle {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-1);
+}
+
+.pillarDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-bottom: 0;
+}

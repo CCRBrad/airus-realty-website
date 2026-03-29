@@ -1,0 +1,175 @@
+/* ========================================
+   SELL / HOME VALUE — Lead Capture Page
+   ======================================== */
+
+.page {
+  padding-top: var(--space-8);
+}
+
+/* ---------- Form Section ---------- */
+.formSection {
+  padding: var(--space-16) 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Left column - info */
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.infoTitle {
+  font-size: var(--font-size-3xl);
+  color: var(--color-navy);
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .infoTitle {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+.infoSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+}
+
+.benefitList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.benefitIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-blue-ghost);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.benefitText h4 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: var(--space-1);
+}
+
+.benefitText p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin-bottom: 0;
+}
+
+/* Right column - form card */
+.formCard {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-gray-200);
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+.formCardTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 480px) {
+  .formRowDouble {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formRow + .formRow {
+  margin-top: 0;
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  font-size: var(--font-size-lg);
+}
+
+/* ---------- Disclaimer ---------- */
+.disclaimer {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-off-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-gray-200);
+}
+
+.disclaimer p {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ---------- Success State ---------- */
+.successCard {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-8);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-gray-200);
+  text-align: center;
+}
+
+.successIcon {
+  font-size: 48px;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.successTitle {
+  font-size: var(--font-size-2xl);
+  color: var(--color-navy);
+  margin-bottom: var(--space-3);
+}
+
+.successText {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  max-width: 400px;
+  margin: 0 auto var(--space-6);
+}

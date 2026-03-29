@@ -30,13 +30,13 @@ const clientExperience = [
 ];
 
 const learningCategories = [
-  { icon: '🚀', label: 'New Agent Training', href: '/learning-center#new-agent' },
-  { icon: '🏠', label: 'Listings & Marketing', href: '/learning-center#listings' },
-  { icon: '🤝', label: 'Buyer Conversion', href: '/learning-center#buyers' },
-  { icon: '📱', label: 'Social Media for Realtors', href: '/learning-center#social' },
-  { icon: '📊', label: 'Market Updates', href: '/learning-center#market' },
-  { icon: '🔑', label: 'Buyer Guides', href: '/learning-center#buyer-guides' },
-  { icon: '💸', label: 'Seller Guides', href: '/learning-center#seller-guides' },
+  { icon: '🚀', label: 'New Agent Training', href: '/learning-center/new-agent-guide' },
+  { icon: '🏠', label: 'Listings & Marketing', href: '/learning-center/listing-growth' },
+  { icon: '🤝', label: 'Buyer Conversion', href: '/learning-center/buyer-conversion' },
+  { icon: '📱', label: 'Social Media for Realtors', href: '/learning-center/social-media-strategy' },
+  { icon: '📊', label: 'Market Updates', href: '/learning-center/market-insights' },
+  { icon: '🔑', label: 'Buyer Guides', href: '/learning-center/buyer-education' },
+  { icon: '💸', label: 'Seller Guides', href: '/learning-center/seller-education' },
 ];
 
 /* --------------------------------------------------------

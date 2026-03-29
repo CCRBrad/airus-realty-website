@@ -6,7 +6,7 @@ const footerSections = [
         title: 'For Agents',
         links: [
             { label: 'Meet the Team', href: '/agents' },
-            { label: 'Why Airus', href: '/agents#directory' },
+            { label: 'Why Airus', href: '/why-airus' },
             { label: 'Join Airus', href: '/join' },
             { label: 'Training & Tools', href: '/training' },
             { label: 'Culture', href: '/culture' },
@@ -18,7 +18,7 @@ const footerSections = [
             { label: 'Find Homes', href: '/find-homes' },
             { label: 'Mortgage Calculator', href: '/calculators/mortgage-calculator' },
             { label: 'Rent vs Buy', href: '/calculators/rent-vs-buy' },
-            { label: 'Buyer Guides', href: '/learning-center#buyer-guides' },
+            { label: 'Buyer Guides', href: '/learning-center/buyer-education' },
         ],
     },
     {
@@ -26,7 +26,7 @@ const footerSections = [
         links: [
             { label: 'Sell Your Home', href: '/sell' },
             { label: 'Seller Net Proceeds', href: '/calculators/seller-net-proceeds' },
-            { label: 'Seller Guides', href: '/learning-center#seller-guides' },
+            { label: 'Seller Guides', href: '/learning-center/seller-education' },
             { label: 'Find an Agent', href: '/find-homes' },
         ],
     },
@@ -35,7 +35,7 @@ const footerSections = [
         links: [
             { label: 'All Calculators', href: '/calculators' },
             { label: 'Learning Center', href: '/learning-center' },
-            { label: 'Market Insights', href: '/learning-center#market' },
+            { label: 'Market Insights', href: '/learning-center/market-insights' },
         ],
     },
     {

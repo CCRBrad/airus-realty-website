@@ -1,0 +1,162 @@
+/* ========================================
+   SELL PAGE — Conversion Block
+   ======================================== */
+
+.conversionSection {
+  padding: var(--space-16) 0;
+  background: var(--color-off-white);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.sectionSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-500);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.conversionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .conversionGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.conversionCard {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.conversionCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  color: inherit;
+}
+
+.conversionIcon {
+  font-size: 36px;
+  margin-bottom: var(--space-4);
+}
+
+.conversionTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-3);
+}
+
+.conversionDesc {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: var(--space-5);
+}
+
+.conversionCta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  color: var(--color-blue);
+  font-size: var(--font-size-base);
+}
+
+/* Marketing anchor section */
+.marketingSection {
+  padding: var(--space-16) 0;
+}
+
+.marketingGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .marketingGrid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+.marketingText h2 {
+  margin-bottom: var(--space-4);
+}
+
+.marketingText p {
+  color: var(--color-gray-600);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-5);
+}
+
+.marketingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.marketingItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+}
+
+.marketingCheck {
+  color: var(--color-success);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.marketingVisual {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  color: var(--color-white);
+}
+
+.marketingStatGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.marketingStat {
+  text-align: center;
+}
+
+.marketingStat strong {
+  display: block;
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-gold);
+}
+
+.marketingStat span {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
