@@ -1,91 +1,151 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '@/components/Hero';
-import FAQ from '@/components/FAQ';
+import StatsBar from '@/components/StatsBar';
 import CTABanner from '@/components/CTABanner';
+import { getFeaturedAgents } from '@/data/agents';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Join Airus Realty',
-  description: 'Join a modern real estate brokerage built for agents who want to grow faster and close more. Training, leads, marketing, support, and systems.',
+  title: 'Join Airus Realty — Build a Real Estate Business That Actually Grows',
+  description: 'Training. Mentorship. Systems. Real support from people who are in the business with you. Explore opportunities at Airus Realty.',
 };
 
-const whoCards = [
-  { icon: '🌱', title: 'New Agents', desc: 'Just got your license? We\'ll give you the training, mentorship, and leads to get your career started right.' },
-  { icon: '📈', title: 'Producing Agents', desc: 'Already closing deals? Plug into our systems, marketing, and technology to scale your production.' },
-  { icon: '👥', title: 'Team Builders', desc: 'Ready to build a team? Our platform gives you the tools, training, and support to grow and lead.' },
+const mentorDescriptions: Record<string, string> = {
+  'marcus-chen': 'With 8+ years in luxury real estate, Marcus mentors agents on high-value negotiations, client acquisition, and building a pipeline that produces consistently.',
+  'sophia-ramirez': 'Sophia specializes in coaching new agents through their first transactions — from lead conversion to closing — with a focus on confidence and client communication.',
+  'david-okonkwo': 'David brings 10 years of investment expertise and teaches agents how to think analytically, evaluate deals, and build wealth-focused client relationships.',
+};
+
+const timelineColumns = [
+  {
+    phase: 'First 30 Days',
+    items: [
+      'Onboarding and training',
+      'CRM and pipeline setup',
+      'Scripts and structure to guide conversations',
+    ],
+  },
+  {
+    phase: '60–90 Days',
+    items: [
+      'First deals in motion',
+      'Confidence in client conversations',
+      'Consistent activity and momentum',
+    ],
+  },
+  {
+    phase: '6–12 Months',
+    items: [
+      'Predictable closings',
+      'Strong personal brand',
+      'A business that continues to grow',
+    ],
+  },
 ];
 
-const getItems = [
-  { icon: '🎓', label: 'Training', desc: 'Live coaching, scripts, and systems that lead to closings' },
-  { icon: '🎯', label: 'Leads', desc: 'Built-in lead generation systems and conversion tools' },
-  { icon: '📱', label: 'Marketing', desc: 'Personal branding, social media, and listing marketing done for you' },
-  { icon: '🤝', label: 'Support', desc: 'Transaction coordination, mentorship, and accountability' },
-  { icon: '⚡', label: 'Systems', desc: 'CRM, automation, playbooks, and everything you need in one place' },
+const whatYouGet = [
+  { icon: '🎓', title: 'Training & Mentorship', desc: 'Weekly sessions, real deal breakdowns, and guidance that actually helps you close.' },
+  { icon: '⚡', title: 'Systems & Tools', desc: 'CRM, automation, and processes designed to keep you organized and efficient.' },
+  { icon: '📱', title: 'Marketing Support', desc: 'Help building your brand, creating content, and attracting clients.' },
+  { icon: '🤝', title: 'Deal Support', desc: 'Guidance throughout your transactions so nothing falls through the cracks.' },
+  { icon: '📈', title: 'Accountability & Growth', desc: 'Structure and leadership that keeps you moving forward.' },
 ];
 
-const growthSteps = [
-  { number: 1, label: 'First Deal', desc: 'Close your first transaction' },
-  { number: 2, label: '5 Deals', desc: 'Build consistent momentum' },
-  { number: 3, label: '10 Deals', desc: 'Scale your production' },
-  { number: 4, label: 'Build a Team', desc: 'Lead and grow others' },
+const thriveItems = [
+  'Want to grow your business',
+  'Are open to coaching and mentorship',
+  'Want structure and direction',
+  'Are serious about closing deals',
 ];
 
-const faqItems = [
-  { question: 'What are the commission splits?', answer: 'Our commission structure is competitive and designed to reward production. We offer flexible split options that improve as your production grows. Schedule a confidential call to discuss specifics.' },
-  { question: 'Are there monthly fees?', answer: 'We keep our fee structure simple and transparent. There are no hidden costs. We\'ll walk you through everything during your confidential call.' },
-  { question: 'Do you provide leads?', answer: 'Yes. We provide built-in lead generation systems including online leads, CRM tools, and conversion training. Our agents have access to multiple lead sources and the training to convert them.' },
-  { question: 'What kind of support do you offer?', answer: 'Full support — including transaction coordination, marketing assistance, technology setup, one-on-one coaching, group training, and mentorship programs. New agents get extra hands-on guidance.' },
-  { question: 'What training programs are available?', answer: 'We offer comprehensive training including new agent bootcamps, advanced listing strategies, buyer conversion systems, social media marketing, scripts and objection handling, and ongoing coaching.' },
-  { question: 'Can I bring my current listings?', answer: 'Absolutely. You can transfer your current listings and pipeline when you join. We\'ll help make the transition seamless.' },
+const notFitItems = [
+  'Prefer to work completely on your own',
+  'Aren\'t looking to grow or improve',
+  'Don\'t want guidance or accountability',
 ];
 
 export default function JoinPage() {
+  const leaders = getFeaturedAgents();
+
   return (
     <>
-      {/* Hero */}
+      {/* SECTION 1: HERO */}
       <Hero
         variant="dark"
-        badge="Airus Realty"
-        title="Join Airus Realty"
-        subtitle="Built for agents who want to grow faster and close more."
-        primaryCTA={{ label: 'Schedule a Confidential Call', href: '/contact' }}
-        secondaryCTA={{ label: 'See What You Get', href: '#what-you-get' }}
+        badge="Join Airus Realty"
+        title={'Build a Real Estate Business\nThat Actually Grows'}
+        subtitle="Training. Mentorship. Systems. Real support from people who are in the business with you."
+        primaryCTA={{ label: 'Explore Opportunities', href: '/contact' }}
+        secondaryCTA={{ label: 'Meet the Team', href: '/agents' }}
       />
 
-      {/* Who This Is For */}
-      <section className={styles.whoSection}>
+      {/* SECTION 2: POSITIONING */}
+      <section className={styles.positionSection}>
         <div className="container">
-          <div className={styles.sectionHeader}>
-            <div className="divider divider--center" />
-            <h2>Who This Is For</h2>
-          </div>
-          <div className={styles.whoGrid}>
-            {whoCards.map((card, i) => (
-              <div key={i} className={styles.whoCard}>
-                <div className={styles.whoIcon}>{card.icon}</div>
-                <h3 className={styles.whoTitle}>{card.title}</h3>
-                <p className={styles.whoDesc}>{card.desc}</p>
+          <div className={styles.positionInner}>
+            <h2>Most Brokerages Don&apos;t Help You Grow. We Do.</h2>
+            <div className={styles.positionBody}>
+              <p>
+                Most agents enter real estate excited, motivated, and ready to succeed.
+              </p>
+              <p>
+                But what they actually get is little direction, limited support, and no clear path forward.
+                At Airus Realty, we built a different kind of brokerage.
+                One focused on helping you grow, close deals, and build a business that lasts.
+              </p>
+            </div>
+            <div className={styles.positionBullets}>
+              <div className={styles.positionBullet}>
+                <span className={styles.bulletCheck}>✓</span>
+                Structured training that leads to real closings
               </div>
-            ))}
+              <div className={styles.positionBullet}>
+                <span className={styles.bulletCheck}>✓</span>
+                Hands-on mentorship from experienced agents
+              </div>
+              <div className={styles.positionBullet}>
+                <span className={styles.bulletCheck}>✓</span>
+                Systems that simplify your day-to-day business
+              </div>
+              <div className={styles.positionBullet}>
+                <span className={styles.bulletCheck}>✓</span>
+                A culture built around growth, not just transactions
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What You Get */}
-      <section className={styles.getSection} id="what-you-get">
+      {/* SECTION 3: LEADERSHIP */}
+      <section className={styles.leaderSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
             <div className="divider divider--center" />
-            <h2>What You Get</h2>
+            <h2>Learn From People Who Actually Produce</h2>
+            <p className={styles.sectionSubtitle}>
+              You&apos;re not just joining a brokerage. You&apos;re learning from people who are actively in the business and know what it takes to win.
+            </p>
           </div>
-          <div className={styles.getGrid}>
-            {getItems.map((item, i) => (
-              <div key={i} className={styles.getItem}>
-                <span className={styles.getIcon}>{item.icon}</span>
-                <div>
-                  <div className={styles.getLabel}>{item.label}</div>
-                  <div className={styles.getDesc}>{item.desc}</div>
+          <div className={styles.leaderGrid}>
+            {leaders.map((agent) => (
+              <div key={agent.slug} className={styles.leaderCard}>
+                <div className={styles.leaderPhotoWrap}>
+                  <Image
+                    src={agent.photo}
+                    alt={agent.name}
+                    width={400}
+                    height={400}
+                    className={styles.leaderPhoto}
+                  />
+                </div>
+                <div className={styles.leaderInfo}>
+                  <h3 className={styles.leaderName}>{agent.name}</h3>
+                  <p className={styles.leaderTitle}>{agent.title}</p>
+                  <p className={styles.leaderDesc}>
+                    {mentorDescriptions[agent.slug] || agent.bio.slice(0, 160) + '...'}
+                  </p>
                 </div>
               </div>
             ))}
@@ -93,83 +153,118 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* Growth Path */}
-      <section className={styles.growthSection}>
+      {/* SECTION 4: TRANSFORMATION — FIRST 90 DAYS */}
+      <section className={styles.timelineSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
             <div className="divider divider--center" />
-            <h2>Your Growth Path</h2>
-            <p className={styles.sectionSubtitle}>
-              A clear trajectory from your first deal to building your own team.
-            </p>
+            <h2>What Your First 90 Days Could Look Like</h2>
           </div>
-          <div className={styles.growthPath}>
-            {growthSteps.map((step, i) => (
-              <div key={i} className={styles.growthStep}>
-                {i > 0 && <span className={styles.growthArrow}>→</span>}
-                <div className={styles.growthNumber}>{step.number}</div>
-                <div className={styles.growthLabel}>{step.label}</div>
-                <div className={styles.growthDesc}>{step.desc}</div>
+          <div className={styles.timelineGrid}>
+            {timelineColumns.map((col, i) => (
+              <div key={i} className={styles.timelineCol}>
+                <div className={styles.timelinePhase}>{col.phase}</div>
+                <ul className={styles.timelineList}>
+                  {col.items.map((item, j) => (
+                    <li key={j} className={styles.timelineItem}>
+                      <span className={styles.bulletCheck}>✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <FAQ
-        title="Frequently Asked Questions"
-        subtitle="Answers to common questions about joining Airus Realty."
-        items={faqItems}
-      />
-
-      {/* Lead Form */}
-      <section className={styles.formSection}>
+      {/* SECTION 5: WHAT YOU GET */}
+      <section className={styles.getSection}>
         <div className="container">
-          <div className={styles.formCard}>
-            <h3 className={styles.formTitle}>Let&apos;s Talk</h3>
-            <p className={styles.formSub}>Fill out the form and we&apos;ll schedule your confidential call.</p>
-            <form>
-              <div className="form-group">
-                <label className="form-label" htmlFor="join-name">Full Name</label>
-                <input className="form-input" id="join-name" type="text" placeholder="Your name" required />
+          <div className={styles.sectionHeader}>
+            <div className="divider divider--center" />
+            <h2>Everything You Need to Win</h2>
+          </div>
+          <div className={styles.getGrid}>
+            {whatYouGet.map((item, i) => (
+              <div key={i} className={styles.getCard}>
+                <span className={styles.getIcon}>{item.icon}</span>
+                <h3 className={styles.getTitle}>{item.title}</h3>
+                <p className={styles.getDesc}>{item.desc}</p>
               </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="join-email">Email</label>
-                <input className="form-input" id="join-email" type="email" placeholder="you@email.com" required />
-              </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="join-phone">Phone</label>
-                <input className="form-input" id="join-phone" type="tel" placeholder="(555) 000-0000" required />
-              </div>
-              <div className="form-group">
-                <label className="form-label" htmlFor="join-experience">Experience Level</label>
-                <select className="form-select" id="join-experience" required>
-                  <option value="">Select your experience</option>
-                  <option value="new">New Agent (0-1 years)</option>
-                  <option value="intermediate">Producing Agent (1-5 years)</option>
-                  <option value="experienced">Experienced Agent (5+ years)</option>
-                  <option value="team">Team Builder</option>
-                </select>
-              </div>
-              <button type="submit" className="btn btn--gold btn--lg btn--full" style={{ marginTop: 'var(--space-4)' }}>
-                Schedule a Confidential Call
-              </button>
-            </form>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* SECTION 6: PROOF — STATS */}
+      <StatsBar
+        stats={[
+          { value: '200+', label: 'Transactions Closed' },
+          { value: '3×', label: 'Agent Growth' },
+          { value: '45%', label: 'Production Increase' },
+        ]}
+        variant="dark"
+        disclaimer="Based on internal company data"
+      />
+
+      {/* SECTION 7: WHO THIS IS FOR */}
+      <section className={styles.fitSection}>
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <div className="divider divider--center" />
+            <h2>Is Airus Right for You?</h2>
+          </div>
+          <div className={styles.fitGrid}>
+            <div className={styles.fitCol}>
+              <h3 className={styles.fitColTitle}>
+                <span className={styles.fitIconGood}>✓</span>
+                You&apos;ll Thrive Here If You:
+              </h3>
+              <ul className={styles.fitList}>
+                {thriveItems.map((item, i) => (
+                  <li key={i} className={styles.fitItem}>
+                    <span className={styles.fitCheckGood}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={`${styles.fitCol} ${styles.fitColNot}`}>
+              <h3 className={styles.fitColTitle}>
+                <span className={styles.fitIconNot}>✕</span>
+                This May Not Be the Right Fit If You:
+              </h3>
+              <ul className={styles.fitList}>
+                {notFitItems.map((item, i) => (
+                  <li key={i} className={styles.fitItem}>
+                    <span className={styles.fitCheckNot}>✕</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8: FINAL CTA */}
       <CTABanner
-        heading="Ready to Grow?"
-        description="Join the brokerage that invests in your success — with real training, real tools, and real results."
-        primaryLabel="Join Airus"
+        heading="You Don't Need to Commit. Just See What's Possible."
+        description="Have a conversation, learn how we operate, and decide if it's the right fit for you."
+        primaryLabel="Talk to Us"
         primaryHref="/contact"
-        secondaryLabel="Explore the Platform"
-        secondaryHref="/training"
+        secondaryLabel="Meet the Team"
+        secondaryHref="/agents"
         variant="blue"
       />
+
+      {/* STICKY CTA (Mobile + Desktop) */}
+      <div className={styles.stickyCta}>
+        <Link href="/contact" className={styles.stickyBtn}>
+          Explore Opportunities
+        </Link>
+      </div>
     </>
   );
 }
