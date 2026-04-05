@@ -110,7 +110,7 @@ export default function HomePage() {
             <h2>How Can We Help You?</h2>
           </div>
           <div className={styles.dualGrid}>
-            <Link href="/agents" className={styles.dualCard}>
+            <Link href="/join" className={styles.dualCard}>
               <span className={styles.dualIcon}>👔</span>
               <h3 className={styles.dualTitle}>I&apos;m an Agent</h3>
               <p className={styles.dualSub}>Grow Your Career With Airus</p>
